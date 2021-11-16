@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.5.2'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'maven-publish'
 }
 
 group = 'com.example'
@@ -19,4 +20,24 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+}
+publishing {
+    publications {
+        maven(MavenPublication) {
+
+ // bootJar is the default build task configured by Spring Boot
+            artifact bootJar
+        }
+    }
+
+    repositories {
+        maven {
+            url = "http://50.19.31.203:8081/repository/maven-snapshots/"
+            credentials {
+                username "admin"
+                password "admin123"
+            }
+        }
+
+    }
 }
