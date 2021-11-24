@@ -42,3 +42,10 @@ publishing {
 
     }
 }
+
+sonarqube {
+    properties {
+        property "sonar.sourceEncoding", "UTF-8"
+	property "sonar.login", "3f6fe12bd6ea1d0ab84090c10ffbc84140c3b97a"
+    }
+}
